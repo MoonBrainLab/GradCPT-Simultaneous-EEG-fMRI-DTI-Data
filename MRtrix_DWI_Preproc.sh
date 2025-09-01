@@ -11,11 +11,11 @@
 display_usage() {
     echo "Usage: $(basename $0) [Raw_DWI] [RevPhaseImage] [AP_bvec] [AP_bval] [Anatomical]"
     echo "This script preprocesses DWI data using MRtrix3. It requires 5 arguments:"
-    echo "  1) Raw_DWI: The raw diffusion-weighted image (e.g., sub-002_acq-AP_dwi.nii.gz)"
-    echo "  2) RevPhaseImage: The image acquired with reverse phase-encoding (e.g., sub-002_acq-PA_dwi.nii.gz)"
-    echo "  3) AP_bvec: The bvec file for the AP direction (e.g., sub-002_acq-AP_dwi.bvec)"
-    echo "  4) AP_bval: The bval file for the AP direction (e.g., sub-002_acq-AP_dwi.bval)"
-    echo "  5) Anatomical: The anatomical image (e.g., sub-002_T1.nii)"
+    echo "  1) Raw_DWI: The raw diffusion-weighted image (e.g., sub-001_acq-AP_dwi.nii.gz)"
+    echo "  2) RevPhaseImage: The image acquired with reverse phase-encoding (e.g., sub-001_acq-PA_dwi.nii.gz)"
+    echo "  3) AP_bvec: The bvec file for the AP direction (e.g., sub-001_acq-AP_dwi.bvec)"
+    echo "  4) AP_bval: The bval file for the AP direction (e.g., sub-001_acq-AP_dwi.bval)"
+    echo "  5) Anatomical: The anatomical image (e.g., sub-001_T1.nii)"
     exit 1
 }
 
