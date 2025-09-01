@@ -14,7 +14,9 @@ DWI Data: Using MRtrix3 and FSL scripts, along with MATLAB scripts, for diffusio
 
 # Dependencies
 Ensure the following software is installed:
+
 MATLAB: For EEG preprocessing (fMRIb_preprocessing_EEG_fMRI_data_insert_TR.m) and DWI ROI extraction/plotting (extractROIs.m, plotSeedConnResults.m, saveniidat.m).
+
 Required MATLAB toolboxes: EEGLAB (for EEG preprocessing).
 
 fMRIPrep: For fMRI preprocessing (run_fmriprep.sh). Install via Docker or Singularity.
