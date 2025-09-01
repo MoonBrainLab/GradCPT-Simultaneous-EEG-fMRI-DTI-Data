@@ -1,6 +1,6 @@
 # GradCPT-Simultaneous-EEG-fMRI-DTI Dataset Preprocessing Pipeline
 
-This repository contains scripts for preprocessing EEG, fMRI, and DWI data. The pipeline includes EEG preprocessing with MATLAB, fMRI preprocessing with fMRIPrep, and DWI preprocessing with MRtrix3 and FSL. These scripts are designed to prepare raw neuroimaging data for downstream analysis, such as connectivity studies or statistical modeling.
+This repository contains scripts for preprocessing EEG, fMRI, and DWI data. The pipeline includes EEG preprocessing with MATLAB, fMRI preprocessing with fMRIPrep, and DWI preprocessing with MRtrix3 and FSL.
 
 Author: Younghwa Cha, Yeji Lee, Eunhee Ji, SoHyun Han, Sunhyun Min, Hyoungkyu Kim, Minseo Cho, Haesung Lee, Youngjai Park, Joon-Young Moon, Brain States and Transitions Lab, IBS, CNIR, Sungkyunkwan University
 
