@@ -1,0 +1,37 @@
+function [] = saveniidat(savename,dat,refdat)
+info_dat=niftiinfo(refdat);
+niftiwrite(dat,savename);
+info_f=niftiinfo(savename);
+info_f.Description=info_dat.Description;
+if length(info_dat.PixelDimensions)>=length(info_f.PixelDimensions)
+    info_f.PixelDimensions=info_dat.PixelDimensions(1:length(info_f.PixelDimensions));
+else
+    info_f.PixelDimensions(1:length(info_dat.PixelDimensions))=info_dat.PixelDimensions;
+end
+info_f.SpaceUnits=info_dat.SpaceUnits;
+info_f.TimeUnits=info_dat.TimeUnits;
+info_f.MultiplicativeScaling=info_dat.MultiplicativeScaling;
+info_f.SpatialDimension=info_dat.SpatialDimension;
+info_f.TransformName=info_dat.TransformName;
+info_f.Transform=info_dat.Transform;
+info_f.Qfactor=info_dat.Qfactor;
+raw_f=info_f.raw;
+raw_dat=info_dat.raw;
+raw_f.pixdim=raw_dat.pixdim;
+raw_f.scl_slope=raw_dat.scl_slope;
+raw_f.xyzt_units=raw_dat.xyzt_units;
+raw_f.descrip=raw_dat.descrip;
+raw_f.qform_code=raw_dat.qform_code;
+raw_f.sform_code=raw_dat.sform_code;
+raw_f.quatern_b=raw_dat.quatern_b;
+raw_f.quatern_c=raw_dat.quatern_c;
+raw_f.quatern_d=raw_dat.quatern_d;
+raw_f.qoffset_x=raw_dat.qoffset_x;
+raw_f.qoffset_y=raw_dat.qoffset_y;
+raw_f.qoffset_z=raw_dat.qoffset_z;
+raw_f.srow_x=raw_dat.srow_x;
+raw_f.srow_y=raw_dat.srow_y;
+raw_f.srow_z=raw_dat.srow_z;
+info_f.raw=raw_f;
+niftiwrite(dat,savename,info_f);
+end
