@@ -7,6 +7,8 @@ Author: Younghwa Cha, Yeji Lee, Eunhee Ji, SoHyun Han, Sunhyun Min, Hyoungkyu Ki
 
 # Overview
 # This pipeline processes:
+gradCPT task: Using a MATLAB script to present gradCPT stimuli (CPT_withinSubject1_v2.m)
+
 EEG Data: Using a MATLAB script to preprocess EEG data and insert fMRI TR (repetition time) markers for concurrent EEG-fMRI studies.
 
 fMRI Data: Using fMRIPrep via a Bash script for preprocessing functional MRI data.
