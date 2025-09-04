@@ -1,6 +1,6 @@
 # GradCPT-Simultaneous-EEG-fMRI-DTI Dataset Preprocessing Pipeline
 
-This repository contains the custom code developed by Jihyang Jun and Vanessa G. Lee for presenting gradCPT stimuli in the gradCPT experiment.
+This repository contains the custom code developed by Jihyang Jun and Vanessa G. Lee for presenting gradCPT stimuli in the gradCPT task.
 This repository also contains scripts for preprocessing EEG, fMRI, and DWI data. The pipeline includes EEG preprocessing with MATLAB, fMRI preprocessing with fMRIPrep, and DWI preprocessing with MRtrix3 and FSL.
 
 Author: Younghwa Cha, Yeji Lee, Eunhee Ji, SoHyun Han, Sunhyun Min, Hyoungkyu Kim, Minseo Cho, Haesung Lee, Youngjai Park, Joon-Young Moon, Brain States and Transitions Lab, IBS, CNIR, Sungkyunkwan University
