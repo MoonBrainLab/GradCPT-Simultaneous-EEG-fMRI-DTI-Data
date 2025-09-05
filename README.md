@@ -26,7 +26,7 @@ fMRIPrep: For fMRI preprocessing (run_fmriprep.sh). Install via Docker or Singul
 
 MRtrix3: For DWI preprocessing (MRtrix_DWI_Preproc.sh).
 
-FSL: For DWI preprocessing and connectivity analysis (Structural_Connectivity.sh, extractROIs.m, plotSeedConnResults.m).
+FSL: For DWI processing and connectivity analysis (Structural_Connectivity.sh, extractROIs.m, plotSeedConnResults.m).
 
 FreeSurfer: For anatomical segmentation in DWI connectivity analysis.
 
