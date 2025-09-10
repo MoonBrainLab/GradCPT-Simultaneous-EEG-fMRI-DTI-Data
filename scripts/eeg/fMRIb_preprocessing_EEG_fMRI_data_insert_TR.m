@@ -43,7 +43,7 @@ load('./ch_locs.mat');
 
 %% Main preprocessing loop
 for ANCFlag = 0 % 0 : No ANC, 1: ANC applied
-    for subj_no = 3 % Change to 1:length(subj_list) for all subjects
+    for subj_no = 1 % Change to 1:length(subj_list) for all subjects
         state_list = dir([file_path subj_list(subj_no).name '/*.vhdr']);
 
         % Create output directories
@@ -54,7 +54,7 @@ for ANCFlag = 0 % 0 : No ANC, 1: ANC applied
             mkdir(outputDir1); mkdir([outputDir1 '/figure']);
         end
 
-        for st_no = 6 % Change to 1:length(state_list) for all sessions
+        for st_no = 1 % Change to 1:length(state_list) for all sessions
             input_fileName = state_list(st_no).name;
 
             %% Load raw EEG
