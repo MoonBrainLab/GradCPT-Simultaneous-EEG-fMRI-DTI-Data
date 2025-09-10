@@ -25,7 +25,7 @@
 % Usage notes:
 % - ANCFlag = 0 : No ANC applied
 % - ANCFlag = 1 : ANC applied
-% - Users must place raw EEG files in the relative folder structure as described in the GitHub repository.
+% - Users must place raw EEG files in the relative folder structure.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
