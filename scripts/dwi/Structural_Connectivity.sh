@@ -51,8 +51,9 @@ echo "Starting structural connectivity processing for $SUBJECT_ID at $(date)..."
 
 # Define output directories
 SUBJECT_DIR="${DATA_DIR}/${SUBJECT_ID}"
-OUT_DIR="${DATA_DIR}/connectome_${SUBJECT_ID}/subject_bedpostx"
-OUT_DIR2="${DATA_DIR}/connectome_${SUBJECT_ID}"
+SUBJECT_DIR2="${SUBJECT_DIR}/dwi/${SUBJECT_ID}_processed"
+OUT_DIR="${SUBJECT_DIR2}/connectomes/subject_bedpostx"
+OUT_DIR2="${SUBJECT_DIR2}/connectomes"
 mkdir -p "$OUT_DIR" "$OUT_DIR2/SeedConnResults"
 
 # Change to data directory
@@ -65,30 +66,30 @@ recon-all -i "$T1" -subjid "$SUBJECT_ID" -all -sd "$SUBJECT_DIR"
 # Convert FreeSurfer segmentation to T1 space (Desikan-Killiany atlas)
 echo "Desikan-Killiany atlas labeling..."
 mri_label2vol \
-    --seg "${SUBJECT_DIR}/mri/aparc+aseg.mgz" \
-    --temp "${SUBJECT_DIR}/mri/rawavg.mgz" \
-    --o "${SUBJECT_DIR}/mri/aparc+aseg_T1space.nii.gz" \
-    --regheader "${SUBJECT_DIR}/mri/aparc+aseg.mgz"
+    --seg "${SUBJECT_DIR}/anat/${SUBJECT_ID}_aparc+aseg.mgz" \
+    --temp "${SUBJECT_DIR}/anat/${SUBJECT_ID}_rawavg.mgz" \
+    --o "${SUBJECT_DIR}/anat/${SUBJECT_ID}_aparc+aseg_T1space.nii.gz" \
+    --regheader "${SUBJECT_DIR}/anat/${SUBJECT_ID}_aparc+aseg.mgz"
 
 ########################### STEP 2: DWI Registration ###########################
 # Extract b0 image for registration
 echo "Extracting b0 image for registration..."
-fslroi "$B0_UNWARPED" "${DATA_DIR}/processed/b0_img.nii.gz" 0 1
+fslroi "$B0_UNWARPED" "${SUBJECT_DIR2}/b0_img.nii.gz" 0 1
 
 # Register atlas to DWI space
 echo "Registering atlas to DWI space..."
-flirt -in "${SUBJECT_DIR}/mri/aparc+aseg_T1space.nii.gz" \
-      -ref "${DATA_DIR}/processed/b0_img.nii.gz" \
+flirt -in "${SUBJECT_DIR}/anat/${SUBJECT_ID}_aparc+aseg_T1space.nii.gz" \
+      -ref "${SUBJECT_DIR2}/b0_img.nii.gz" \
       -applyxfm -usesqform \
       -interp nearestneighbour \
-      -out "${DATA_DIR}/processed/atlas_LUT.nii.gz"
+      -out "${SUBJECT_DIR2}/atlas_LUT.nii.gz"
 
 ########################### STEP 3: Prepare Files for BedpostX ###########################
 # Copy necessary files to bedpostx directory
 echo "Preparing files for bedpostx..."
-ATLAS_ROI="${DATA_DIR}/processed/atlas_LUT.nii.gz"
-cp "$BVAL" "${OUT_DIR}/bvals"
-cp "$BVEC" "${OUT_DIR}/bvecs"
+ATLAS_ROI="${SUBJECT_DIR2}/atlas_LUT.nii.gz"
+cp "$BVAL" "${OUT_DIR}/${SUBJECT_ID}_acq-AP_dwi.bval"
+cp "$BVEC" "${OUT_DIR}/${SUBJECT_ID}_acq-AP_dwi.bvec"
 cp "$EDDY_CORRECTED" "${OUT_DIR}/data.nii.gz"
 cp "$BRAIN_MASK" "${OUT_DIR}/nodif_brain_mask.nii.gz"
 cp "$ATLAS_ROI" "$OUT_DIR"
