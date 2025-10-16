@@ -88,8 +88,8 @@ flirt -in "${SUBJECT_DIR}/anat/${SUBJECT_ID}_aparc+aseg_T1space.nii.gz" \
 # Copy necessary files to bedpostx directory
 echo "Preparing files for bedpostx..."
 ATLAS_ROI="${SUBJECT_DIR2}/atlas_LUT.nii.gz"
-cp "$BVAL" "${OUT_DIR}/${SUBJECT_ID}_acq-AP_dwi.bval"
-cp "$BVEC" "${OUT_DIR}/${SUBJECT_ID}_acq-AP_dwi.bvec"
+cp "$BVAL" "${OUT_DIR}/bvals"
+cp "$BVEC" "${OUT_DIR}/bvecs"
 cp "$EDDY_CORRECTED" "${OUT_DIR}/data.nii.gz"
 cp "$BRAIN_MASK" "${OUT_DIR}/nodif_brain_mask.nii.gz"
 cp "$ATLAS_ROI" "$OUT_DIR"
